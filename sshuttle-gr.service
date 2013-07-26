@@ -1,0 +1,17 @@
+[Unit]
+Description=sshuttle vpn gr
+After=multi-user.target ssh.service mediacenter.service connman.service
+#aftere bala: 2 tae akhari osmc specifice !
+#ConditionPathExists=!/etc/ssh/sshd_not_to_be_run
+
+[Service]
+EnvironmentFile=-/etc/default/ssh
+ExecStart=bash /home/osmc/scripts/svpn.sh
+ExecStop=/bin/kill -HUP $MAINPID
+#ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+#Restart=on-failure
+
+[Install]
+WantedBy=graphical.target
+Alias=svpn.service
