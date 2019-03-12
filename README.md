@@ -1,4 +1,4 @@
-# Hamid's Soup of Scripts
+# Hamid's Shell Soup
 
 Here I'll share scripts I wrote which might come in handy for others as well.
 
