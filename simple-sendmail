@@ -1,0 +1,22 @@
+#!/bin/bash
+# simple sendmail
+
+date_str=`date +%y-%m-%d--%H-%M-%S`
+day_str=`date +%y-%m-%d`
+rand=$((RANDOM % 1000))
+hostname=$(hostname | tr '/:' '\057\072')
+
+mail_dir=$HOME/tmp/mails
+
+fname=$date_str.$rand.mail.$hostname
+target_dir=$mail_dir/$day_str # can't rely on $HOME
+
+# create target dir if missing
+[ -d $target_dir ] || mkdir -p $target_dir
+
+# safety measure: do not overwrite existing mail
+set -o noclobber
+
+cat > $target_dir/$fname
+
+echo saving mail to $target_dir/$fname
