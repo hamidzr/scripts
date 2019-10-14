@@ -2,7 +2,7 @@
 
 # timer, notifier
 
-if [ ! $2 ]; then
+if [ -z "$2" ]; then
   echo pass in seconds and msg
   exit 1
 fi
