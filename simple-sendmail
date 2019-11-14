@@ -8,7 +8,7 @@ hostname=$(hostname | tr '/:' '\057\072')
 
 mail_dir=$HOME/tmp/mails
 
-fname=$date_str.$rand.mail.$hostname
+fname=$date_str.$rand.$hostname.mail.txt
 target_dir=$mail_dir/$day_str # can't rely on $HOME
 
 # create target dir if missing
