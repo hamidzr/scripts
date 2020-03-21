@@ -1,0 +1,23 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "Here I'll share scripts I wrote which might come in handy for others as well.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamidzr/scripts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamidzr/scripts/issues"
+  },
+  "homepage": "https://github.com/hamidzr/scripts#readme",
+  "dependencies": {
+    "command-line-args": "^5.1.1",
+    "puppeteer": "^2.1.1"
+  }
+}
