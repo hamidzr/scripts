@@ -1,7 +1,26 @@
-#!/bin/bash -x
+#!/bin/bash
 
-prs=$(hub pr list -f %I%n)
+# fetch jenkins logs:
+# pass in a PR number to get all the logs for a certain PR
+# do not provide a pr number to get logs for all open PRs.
 
-for pr in $prs; do
-  jenkinsLogs.sh $pr 1
-done;
+requested_pr=$1
+
+function check_all_runs {
+  local pr=$1
+  run=1
+  while true; do
+    jenkinsLogs.sh $pr $run || break
+    run=$((run+1))
+  done;
+  echo "reached the last run ($run) for pr_$pr"
+}
+
+if [ -z ${requested_pr} ]; then
+  prs=$(hub pr list -f %I%n)
+  for pr in $prs; do
+    check_all_runs $pr
+  done;
+else
+  check_all_runs $requested_pr
+fi
