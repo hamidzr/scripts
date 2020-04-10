@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # ssh into a running jenkins instance
 
