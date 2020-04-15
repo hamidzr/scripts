@@ -10,7 +10,7 @@ function check_all_runs {
   local pr=$1
   run=1
   while true; do
-    jenkinsLogs.sh $pr $run || break
+    jenkins-logs.sh $pr $run || break
     run=$((run+1))
   done;
   echo "reached the last run ($run) for pr_$pr"
