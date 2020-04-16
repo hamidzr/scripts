@@ -2,9 +2,9 @@
 
 # fetch jenkins logs from a pr $pr, test $pipeline_name and run $run
 
-pr=$1
-run=$2
-pipeline_name=determined-webui-tests
+pipeline_name=$1
+pr=$2
+run=$3
 
 # provide the contents of AWSELBAuthSessionCookie-0 cookie from an authenticated Jenkins page.
 session_cookie="${HOME}/.config/JENKINS_COOKIE"

@@ -4,13 +4,14 @@
 # pass in a PR number to get all the logs for a certain PR
 # do not provide a pr number to get logs for all open PRs.
 
-requested_pr=$1
+pipline_name=$1
+requested_pr=$2
 
 function check_all_runs {
   local pr=$1
   run=1
   while true; do
-    jenkins-logs.sh $pr $run || break
+    jenkins-logs.sh $pipline_name $pr $run || break
     run=$((run+1))
   done;
   echo "reached the last run ($run) for pr_$pr"
