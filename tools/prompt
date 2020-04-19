@@ -4,5 +4,15 @@
 # For example:
 # `./prompt "Do you want to shutdown?" "shutdown -h now"`
 
-[ $(echo -e "No\nYes" | dmenu -i -p "$1" -nb darkred -sb red -sf white -nf gray -fn mono) \
-== "Yes" ] && $2
+choice=$(echo -e "No\nYes" | dmenu -i -p "$1" -nb darkred -sb red -sf white -nf gray -fn mono)
+
+cmd=$2
+
+[ -z $1 ] && echo missing prompt text && exit 1
+if [ -z "${cmd}" ]; then
+    [  $choice == "Yes" ] && exit 0
+    [  $choice == "No" ] && exit 1
+else
+    [  $choice == "No" ] && exit 0
+    [  $choice == "Yes" ] && ${cmd}
+fi
