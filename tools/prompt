@@ -10,9 +10,11 @@ cmd=$2
 
 [ -z $1 ] && echo missing prompt text && exit 1
 if [ -z "${cmd}" ]; then
-    [  $choice == "Yes" ] && exit 0
-    [  $choice == "No" ] && exit 1
+    [[ $choice == "Yes" ]] && exit 0
+    [[ $choice == "No" ]] && exit 1
+    [[ -z $choice ]] && exit 1
 else
-    [  $choice == "No" ] && exit 0
-    [  $choice == "Yes" ] && ${cmd}
+    [[ -z $choice ]] && exit 0
+    [[ $choice == "No" ]] && exit 0
+    [[ $choice == "Yes" ]] && ${cmd}
 fi
