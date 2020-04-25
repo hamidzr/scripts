@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 url=$1
 get_instance_id=${2:-true}
 # url=https://jenkins.determined.ai/blue/organizations/jenkins/determined-webui-tests/detail/PR-142/6/pipeline
