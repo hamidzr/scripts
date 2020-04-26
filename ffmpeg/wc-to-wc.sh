@@ -5,9 +5,19 @@ dst=$2
 
 fps=20
 
-# crop filter options
-dim_w=350
-dim_h=350
+## crop filter options
+# square
+# dim_w=350
+# dim_h=350
+
+# vertical
+dim_w=240
+dim_h=320
+
+# horizontal
+# dim_w=320
+# dim_h=240
+
 offset_w=164
 offset_h=54
 
