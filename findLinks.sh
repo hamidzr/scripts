@@ -5,7 +5,7 @@ hostname=$(echo $base_url | grep 'http.*\/' -o | sed 's/\/$//')
 
 # curl $1 | grep -Eo 'http.?://[^"]+' # misses relative links href="/asdf"
 
-links=$(curl $base_url | grep -Eo 'href="[^"]+' | sed 's/href="//')
+links=$(curl -s --compressed $base_url | grep -Eo 'href="[^"]+' | sed 's/href="//')
 
 
 
