@@ -3,8 +3,20 @@
 # script for setting screen layouts
 
 dir="$HOME/.screenlayout/"
-
 cd $dir
-layout=$(ls | dmenu -matching fuzzy -p "Screenlayout?") || exit
 
-bash $layout
+# FIXME..
+declare -a options="auto\n"
+layouts=$(ls |xargs -n1 echo)
+options+=$layouts
+
+choice=$(echo -e "${options[@]}" | dmenu -matching fuzzy -p "Screenlayout?") || exit
+
+case "$choice" in
+	auto)
+		xrandr --auto
+	;;
+	*)
+    bash $choice
+	;;
+esac
