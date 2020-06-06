@@ -7,7 +7,7 @@ cd $dir
 
 # FIXME..
 declare -a options="auto\n"
-layouts=$(ls |xargs -n1 echo)
+layouts=$(ls *.sh |xargs -n1 echo)
 options+=$layouts
 
 choice=$(echo -e "${options[@]}" | dmenu -matching fuzzy -p "Screenlayout?") || exit
