@@ -3,6 +3,7 @@
 # script for editing common files
 
 declare options=("notes-today
+work-today
 aliases
 awesome
 neovim
@@ -21,6 +22,9 @@ choice=$(echo -e "${options[@]}" | dmenu -matching fuzzy -i -p 'Edit file')
 case "$choice" in
  notes-today)
    config_path="$HOME/notes/today.md"
+ ;;
+ work-today)
+   config_path="$HOME/notes/da/today.md"
  ;;
  aliases)
    config_path="$DOTFILES_DIR/aliases.sh"
