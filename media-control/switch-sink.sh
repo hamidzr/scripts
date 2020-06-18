@@ -3,7 +3,7 @@
 sink_id=$1
 
 if [[ -z $sink_id ]]; then
-  sinks=$(pacmd list-sinks | grep -Pio '((?<=alsa.card_name = )".*"|(?<=index: )\d+)' | paste -s -d ' \n')
+  sinks=$(pacmd list-sinks | grep -Pio '((?<=device.description = )".*"|(?<=index: )\d+)' | paste -s -d ' \n')
   selected=$(echo "${sinks}" | dmenu -i)
   sink_id=$(awk '{print $1}' <<< $selected)
 fi
