@@ -9,15 +9,16 @@ if [[ -z $source_id ]]; then
 fi
 
 # active recording streams
-record_streams=$(pacmd list-source-inputs | grep -Pio '(?<=index: )\d+')
+active_streams=$(pacmd list-source-outputs | grep -Pio '(?<=index: )\d+')
 
 # update the active stream
-if [[ ! -z $record_streams ]]; then
-  for stream_index in "${record_streams}"; do
+if [[ ! -z "$active_streams" ]]; then
+  while IFS= read -r stream_index ; do
     echo pacmd move-source-input $stream_index $source_id
-    pacmd move-source-input $stream_index $source_id
-  done
+    pacmd move-source-output $stream_index $source_id
+  done <<< "${active_streams}"
 fi
+
 
 # change the default
 echo pacmd set-default-source $source_id

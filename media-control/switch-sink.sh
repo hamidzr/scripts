@@ -12,11 +12,11 @@ fi
 playback_streams=$(pacmd list-sink-inputs | grep -Pio '(?<=index: )\d+')
 
 # update the active stream
-if [[ ! -z $playback_streams ]]; then
-  for stream_index in "${playback_streams}"; do
+if [[ ! -z "$playback_streams" ]]; then
+  while IFS= read -r stream_index ; do
     echo pacmd move-sink-input $stream_index $sink_id
     pacmd move-sink-input $stream_index $sink_id
-  done
+  done <<< "${playback_streams}"
 fi
 
 # change the default
