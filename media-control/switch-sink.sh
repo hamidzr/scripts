@@ -4,9 +4,15 @@ sink_id=$1
 
 if [[ -z $sink_id ]]; then
   sinks=$(pacmd list-sinks | grep -Pio '((?<=device.description = )".*"|(?<=index: )\d+)' | paste -s -d ' \n')
-  selected=$(echo "${sinks}" | dmenu -i)
+  selected=$(echo "${sinks}" | dmenu -p 'Pick a sink/output/speaker' -i)
   sink_id=$(awk '{print $1}' <<< $selected)
 fi
+
+if [[ -z $sink_id ]]; then
+  echo no sink selected. exiting.
+  exit 0
+fi
+
 
 # active playback streams
 playback_streams=$(pacmd list-sink-inputs | grep -Pio '(?<=index: )\d+')
