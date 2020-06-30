@@ -3,7 +3,7 @@
 source_id=$1
 
 if [[ -z $source_id ]]; then
-  sources=$(pacmd list-sources | grep -Pio '((?<=device.description = )".*"|(?<=index: )\d+)' | paste -s -d ' \n')
+  sources=$(pacmd list-sources | grep -Pio '((?<=device.description = )".*"|(?<=index: )\d+)' | paste -s -d ' \n' | grep -v "Monitor of")
   selected=$(echo "${sources}" | dmenu -p 'Pick a source/input/mic' -i)
   source_id=$(awk '{print $1}' <<< $selected)
 fi
