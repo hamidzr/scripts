@@ -15,6 +15,9 @@ if [[ -z $source_id ]]; then
   exit 0
 fi
 
+# change the default
+echo pacmd set-default-source $source_id
+pacmd set-default-source $source_id
 
 # active recording streams
 active_streams=$(pacmd list-source-outputs | grep -Pio '(?<=index: )\d+')
@@ -26,8 +29,3 @@ if [[ ! -z "$active_streams" ]]; then
     pacmd move-source-output $stream_index $source_id
   done <<< "${active_streams}"
 fi
-
-
-# change the default
-echo pacmd set-default-source $source_id
-pacmd set-default-source $source_id

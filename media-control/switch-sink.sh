@@ -15,6 +15,9 @@ if [[ -z $sink_id ]]; then
   exit 0
 fi
 
+# change the default
+echo pacmd set-default-sink $sink_id
+pacmd set-default-sink $sink_id
 
 # active playback streams
 playback_streams=$(pacmd list-sink-inputs | grep -Pio '(?<=index: )\d+')
@@ -26,7 +29,3 @@ if [[ ! -z "$playback_streams" ]]; then
     pacmd move-sink-input $stream_index $sink_id
   done <<< "${playback_streams}"
 fi
-
-# change the default
-echo pacmd set-default-sink $sink_id
-pacmd set-default-sink $sink_id
