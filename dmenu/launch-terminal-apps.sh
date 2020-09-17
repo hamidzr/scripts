@@ -7,7 +7,9 @@ glances
 htop
 pianobar
 ranger
-vifm")
+vim
+vifm
+scratchpad.sh")
 
 choice=$(echo -e "${options[@]}" | dmenu -matching fuzzy -i -p 'Launch terminall app')
 
