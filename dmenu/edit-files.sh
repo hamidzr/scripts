@@ -14,6 +14,7 @@ vifm
 vim
 vim
 vscode
+shortcuts
 xresources
 zsh")
 
@@ -54,10 +55,13 @@ case "$choice" in
    config_path="$HOME/.vimrc"
  ;;
  vimb)
-   config_path="$HOME/.config/vimb/config"
+   config_path="$XDG_CONFIG_HOME/vimb/config"
  ;;
  xresources)
    config_path="$HOME/.Xresources"
+ ;;
+ shortcuts)
+   config_path="$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
  ;;
  zsh)
    config_path="$HOME/.zshrc"

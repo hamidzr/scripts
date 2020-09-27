@@ -5,6 +5,7 @@
 declare options=("awesome
 dmenu
 dotfiles
+config
 notes
 scripts")
 
@@ -19,6 +20,9 @@ case "$choice" in
  ;;
   dotfiles)
   dir="$DOTFILES_DIR"
+ ;;
+  config)
+  dir="$DOTFILES_DIR/home/.config"
  ;;
   notes)
   dir="$HOME/notes"
