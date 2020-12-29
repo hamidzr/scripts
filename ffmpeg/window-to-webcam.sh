@@ -35,7 +35,7 @@ declare resolution_opts=("2560x1440
 300x300
 input")
 
-outres=$(echo -e "${resolution_opts[@]}" | dmenu -i -p 'pick output resolution')
+outres=$(echo -e "${resolution_opts[@]}" | dmenu -i -p "pick output resolution (inp: $inres)")
 [[ "${outres}" == "input" ]] && outres=$inres
 
 echo "sizing: ($inres, $xo, $yo, $outres)"
