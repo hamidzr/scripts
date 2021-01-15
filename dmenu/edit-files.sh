@@ -63,6 +63,9 @@ case "$choice" in
  shortcuts)
    config_path="$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
  ;;
+ vscode)
+   config_path="$XDG_CONFIG_HOME/Code\ -\ OSS"
+ ;;
  zsh)
    config_path="$HOME/.zshrc"
  ;;
