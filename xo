@@ -1,0 +1,11 @@
+#!/bin/bash -x
+
+if [ -z "$1" ]; then
+    input=$(xsel -p) # or -b
+    notify-send "xo ${input}"
+else
+    input="${@}"
+fi
+
+xdg-open $input
+
