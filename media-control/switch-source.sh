@@ -19,6 +19,8 @@ fi
 echo pacmd set-default-source $source_id
 pacmd set-default-source $source_id
 
+pactl set-source-volume @DEFAULT_SOURCE@ 100%
+
 # active recording streams
 active_streams=$(pacmd list-source-outputs | grep -Pio '(?<=index: )\d+')
 
