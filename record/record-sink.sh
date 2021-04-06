@@ -32,6 +32,7 @@ module_id=$(pactl load-module module-combine-sink \
   sink_name=$recording_sink_name slaves=$sink_id \
   sink_properties=device.description="Record-and-Play")
 
+echo "point the target playback stream to sink '${recording_sink_name}'"
 # record from the temp sink
 parec --format=s16le -d ${recording_sink_name}.monitor | \
   lame -r --quiet -q 3 --lowpass 17 --abr 192 - $outfile
