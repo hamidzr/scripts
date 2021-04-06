@@ -11,10 +11,8 @@ if [[ -z $sink_id ]]; then
 fi
 
 if [[ -z $sink_id ]]; then
-  >&2 echo no sink selected. exiting.
+  >&2 echo no sink selected.
   exit 1
 fi
 
-
 echo $sink_id
-exit 0
