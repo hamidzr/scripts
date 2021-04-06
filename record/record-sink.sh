@@ -1,7 +1,10 @@
 #!/bin/zsh
 
 sink_id=$(pick-sink.sh $@)
-outfile="${HOME}/tmp/sink-$(dateString.sh).mp3"
+
+outdir=${HOME}/tmp/recording
+mkdir -p ${outdir}
+outfile="${outdir}/sink-$(dateString.sh).mp3"
 
 if [ -z $sink_id ]; then
   exit 1
