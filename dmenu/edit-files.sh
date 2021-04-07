@@ -4,6 +4,7 @@
 
 declare options=("notes-today
 work-today
+scratchpad
 aliases
 awesome
 neovim
@@ -25,7 +26,10 @@ case "$choice" in
    config_path="$HOME/notes/today.md"
  ;;
  work-today)
-   config_path="$HOME/notes/da/today.md"
+   config_path="$HOME/notes/da/work-today.md"
+ ;;
+ scratchpad)
+   config_path="$HOME/notes/scratchpad.md"
  ;;
  aliases)
    config_path="$DOTFILES_DIR/aliases.sh"

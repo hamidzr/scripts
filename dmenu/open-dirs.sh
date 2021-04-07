@@ -16,7 +16,7 @@ case "$choice" in
   dir="$DOTFILES_DIR/awesome"
  ;;
   dmenu)
-  dir="$DOTFILES_DIR/dmenu"
+  dir="$HOME/scripts/dmenu"
  ;;
   dotfiles)
   dir="$DOTFILES_DIR"
