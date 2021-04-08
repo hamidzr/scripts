@@ -77,4 +77,4 @@ case "$choice" in
   exit 1
  ;;
 esac
-run-in-term.sh "sleep 0.100; eval $(resize); $EDITOR ${config_path}"
+run-in-term.sh "sleep 0.100; eval $(resize); cd $(dirname ${config_path}); $EDITOR ${config_path}"
