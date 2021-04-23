@@ -20,3 +20,5 @@ if [[ ! -z "$playback_streams" ]]; then
     pacmd move-sink-input $stream_index $sink_id
   done <<< "${playback_streams}"
 fi
+
+paplay /usr/share/sounds/freedesktop/stereo/bell.oga &
