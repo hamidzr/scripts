@@ -14,7 +14,7 @@ if [ -z $source_id ]; then
   exit 1
 fi
 
-echo "recording..\n"
+echo "recording to ${outdir}..\n"
 parec --channels=${channels} --format=s16le -d ${source_id} | \
   lame -r --quiet -q 3 --lowpass 17 --abr 192 - ${outfile}
 
