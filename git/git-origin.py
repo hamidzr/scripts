@@ -31,3 +31,5 @@ for h in hashes_target:
     if h in src_dict:
         print(h)
         break
+
+# git merge-base $(git branch --show-current) $branch
